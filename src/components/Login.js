@@ -36,7 +36,7 @@ const Login = (props) => {
     .then(res => {
       console.log(res)
       localStorage.setItem("token", res.data.payload)
-      props.history.push('/bubblePage')
+      props.history.push('/bubbles')
     })
     .catch(err => {
       console.log(err)
@@ -53,12 +53,14 @@ const Login = (props) => {
         <h2>Build login form here</h2>
         <form onSubmit={login}>
           <input
+            data-testid="username"
             type='text'
             name='username'
             value={credentials.username}
             onChange={handleChange}
           />
           <input
+            data-testid="password"
             type='password'
             name='password'
             value={credentials.password}
