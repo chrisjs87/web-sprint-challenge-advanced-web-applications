@@ -3,12 +3,44 @@ import React, { useEffect, useState } from "react";
 import Bubbles from "./Bubbles";
 import ColorList from "./ColorList";
 
-import { editColorService, deleteColorService } from '../services/colorServices';
-import fetchColorService from '../services/fetchColorService';
+// import { editColorService, deleteColorService } from '../services/colorServices';
+
+// import fetchColorService from '../services/fetchColorService';
+import axiosWithAuth from './../helpers/axiosWithAuth'
 
 const BubblePage = () => {
   const [colors, setColors] = useState([]);
   const [editing, setEditing] = useState(false);
+
+  // useEffect(() => {
+  //   let colorsArray = fetchColorService()
+  //   setColors(colorsArray)
+  //   console.log(colors)
+  // }, [])
+
+  // useEffect(() => {
+  //   axiosWithAuth()
+  //     .get(`http://localhost:5000/api/colors`)
+  //     .then(res => {
+  //       console.log(res.data)
+  //       setColors(res.data)
+  //     })
+  //     .catch(err => console.log(err))
+  // }, [])
+
+  const fetchColorService = () => {
+    axiosWithAuth()
+      .get(`http://localhost:5000/api/colors`)
+      .then(res => {
+        console.log(res.data)
+        setColors(res.data)
+      })
+      .catch(err => console.log(err))
+  }
+
+  useEffect(() => {
+    fetchColorService()
+  }, [])
 
   const toggleEdit = (value) => {
     setEditing(value);
