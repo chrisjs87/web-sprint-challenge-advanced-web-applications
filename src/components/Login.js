@@ -22,12 +22,12 @@ const Login = (props) => {
   const [credentials, setCredentials] = useState(initialCredentials)
 
   const handleChange = e => {
-    setCredentials({
-      credentials: {
+    setCredentials(
+      {
         ...credentials,
         [e.target.name]: e.target.value
       }
-    })
+    )
   }
 
   const login = e => {
@@ -53,14 +53,14 @@ const Login = (props) => {
         <h2>Build login form here</h2>
         <form onSubmit={login}>
           <input
-            data-testid="username"
+            // data-testid="username"
             type='text'
             name='username'
             value={credentials.username}
             onChange={handleChange}
           />
           <input
-            data-testid="password"
+            // data-testid="password"
             type='password'
             name='password'
             value={credentials.password}
