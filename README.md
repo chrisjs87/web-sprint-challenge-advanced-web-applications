@@ -26,6 +26,8 @@ In this project you will create a login page and request a token from the server
 * [ ] **RUN** `npm install` to install your dependencies.
 * [ ] **RUN** `npm start` to start your application.
 
+------COMPLETE------
+
 ### Task 2: CodeGrade Setup
 
 * [ ] Open the assignment in Canvas and click on the "Set up git" option.
