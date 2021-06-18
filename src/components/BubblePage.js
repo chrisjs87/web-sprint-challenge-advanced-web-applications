@@ -6,7 +6,7 @@ import ColorList from "./ColorList";
 // import { editColorService, deleteColorService } from '../services/colorServices';
 
 // import fetchColorService from '../services/fetchColorService';
-import axiosWithAuth from './../helpers/axiosWithAuth'
+import axiosWithAuth from "./../helpers/axiosWithAuth";
 
 const BubblePage = () => {
   const [colors, setColors] = useState([]);
@@ -31,43 +31,51 @@ const BubblePage = () => {
   const fetchColorService = () => {
     axiosWithAuth()
       .get(`http://localhost:5000/api/colors`)
-      .then(res => {
-        console.log(res.data)
-        setColors(res.data)
+      .then((res) => {
+        console.log(res.data);
+        setColors(res.data);
       })
-      .catch(err => console.log(err))
-  }
+      .catch((err) => console.log(err));
+  };
 
   useEffect(() => {
-    fetchColorService()
-  }, [])
+    fetchColorService();
+  }, []);
 
   const toggleEdit = (value) => {
     setEditing(value);
   };
 
   const saveEdit = (editColor) => {
-    axiosWithAuth().put(`http://localhost:5000/api/colors/${editColor.id}`, editColor)
-      .then(res => {
-        fetchColorService()
+    axiosWithAuth()
+      .put(`http://localhost:5000/api/colors/${editColor.id}`, editColor)
+      .then((res) => {
+        fetchColorService();
       })
-      .catch(err => {
-        console.log(err)
-      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const deleteColor = (colorToDelete) => {
-    axiosWithAuth().delete(`http://localhost:5000/api/colors/${colorToDelete.id}`)
-      .then(res => {
-        fetchColorService()
+    axiosWithAuth()
+      .delete(`http://localhost:5000/api/colors/${colorToDelete.id}`)
+      .then((res) => {
+        fetchColorService();
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err));
   };
 
   return (
     <div className="container">
-      <ColorList colors={colors} editing={editing} toggleEdit={toggleEdit} saveEdit={saveEdit} deleteColor={deleteColor}/>
-      <Bubbles colors={colors}/>
+      <ColorList
+        colors={colors}
+        editing={editing}
+        toggleEdit={toggleEdit}
+        saveEdit={saveEdit}
+        deleteColor={deleteColor}
+      />
+      <Bubbles colors={colors} />
     </div>
   );
 };
