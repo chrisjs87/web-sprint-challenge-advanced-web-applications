@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
 const initialCredentials = {
-  // username: 'Lambda School',
-  // password: 'i<3Lambd4'
   username: '',
   password: ''
 }
@@ -53,6 +51,7 @@ const Login = (props) => {
         <h2>Build login form here</h2>
         <form onSubmit={login}>
           <input
+            id="username"
             data-testid="username"
             type='text'
             name='username'
@@ -60,6 +59,7 @@ const Login = (props) => {
             onChange={handleChange}
           />
           <input
+            id="password"
             data-testid="password"
             type='password'
             name='password'
