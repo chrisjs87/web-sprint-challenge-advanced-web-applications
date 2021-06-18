@@ -5,8 +5,8 @@ import axios from 'axios';
 const initialCredentials = {
   // username: 'Lambda School',
   // password: 'i<3Lambd4'
-  username: 'Lambda',
-  password: 'School'
+  username: '',
+  password: ''
 }
 const initialError = ''
 
